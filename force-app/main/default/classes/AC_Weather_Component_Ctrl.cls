@@ -6,8 +6,8 @@
 public with sharing class AC_Weather_Component_Ctrl {
     private static final String UNIT='metric';
     private static final String CALLOUT_ENDPOINT='https://api.openweathermap.org/data/2.5/forecast?';
-    private static final String API_KEY='f70dc1da7f6cb239366b759213e73471';
-    
+    private static final String API_KEY='xxxxx';//It is set in salesforce org but I modified it for git
+
     /*********************************************************************************
     * @author         Fota Maria-Madalina
     * @date           05-03-2023
