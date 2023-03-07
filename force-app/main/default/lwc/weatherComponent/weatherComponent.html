@@ -1,0 +1,37 @@
+<template>
+  <lightning-card>
+    <lightning-spinner if:true={isLoading} class="slds-align_absolute-center" size="small"
+      variant="brand"></lightning-spinner>
+    <template if:true={showError}>
+      <div class="slds-var-p-around_medium">
+        <c-generic-error error-message={errorMessage}></c-generic-error>
+      </div>
+    </template>
+    <template if:false={showError}>
+      <lightning-button label="Refresh" slot="actions" class="slds-var-p-around_medium" onclick={handleRefreshClick}></lightning-button>
+      <div class="slds-text-align_center">
+        <p class="title-text">Tomorrow's weather</p>
+        <p class="addres-title-text">{address}</p>
+      </div>
+      <div if:true={weatherData}>
+        <lightning-layout horizontal-align="space">
+          <template for:each={weatherData} for:item="weather">
+            <lightning-layout-item flexibility="auto" padding="around-small" key={weather.hour}>
+              <div class="slds-text-align_center">
+                <img src={weather.icon}>
+                <p class="weather-info-text">{weather.temperatureDateTime}</p>
+                <p class="weather-info-text">{weather.temperature}°C</p>
+                <p class="weather-info-text">{weather.description}</p>
+              </div>
+            </lightning-layout-item>
+          </template>
+        </lightning-layout>
+      </div>
+      <div class="slds-p-around_medium">
+        <lightning-input type="text" label="City" required value={city} class="city-input"></lightning-input>
+        <lightning-input type="text" label="Country Code" required value={countryCode} class="country-input slds-var-m-bottom_medium" field-level-help="Please use ISO 3166 country codes."></lightning-input> 
+        <lightning-button label="Update Contact Address" onclick={handleEditButtonClick}></lightning-button>
+      </div>
+    </template>
+  </lightning-card>
+</template>

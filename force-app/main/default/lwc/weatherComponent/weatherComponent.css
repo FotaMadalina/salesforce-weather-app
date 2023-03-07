@@ -1,0 +1,22 @@
+:host{
+    --slds-c-card-color-background: #EAF5FE;
+}
+
+.title-text{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.addres-title-text{
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.weather-info-text{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.city-input, .country-input{
+    width: 30%;
+}
